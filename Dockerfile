@@ -1,4 +1,4 @@
-FROM tristansalles/geodels-base:latest
+FROM geodels/geodels-base:latest
 
 MAINTAINER Tristan Salles
 
