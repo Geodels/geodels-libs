@@ -54,7 +54,6 @@ RUN pip install \
     appdirs packaging \
     runipy \
     ipython \
-    cmocean \
     pyevtk \
     pathlib \
     voropy \
