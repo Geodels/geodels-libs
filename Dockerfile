@@ -56,7 +56,6 @@ RUN pip install \
     ipython \
     pyevtk \
     pathlib \
-    voropy \
     meshio
 
 RUN pip install --no-binary :all: shapely
