@@ -157,3 +157,27 @@ RUN python setup.py install && \
     rm -rf fastfunc
 
 RUN pip install meshplex
+RUN pip install pygeotools
+RUN pip install ruamel.yaml
+
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends apt-utils
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    python-numpy \
+    gdal-bin \
+    libgdal-dev
+
+RUN pip install rasterio
+
+RUN git clone https://github.com/j08lue/pycpt.git && \
+    cd pycpt && \
+    python setup.py install && \
+    cd .. && \
+    rm -rf pycpt
+
+RUN mkdir /root/.config/pipdate
+
+WORKDIR /live
+COPY config.ini .
+RUN mv config.ini /root/.config/pipdate
