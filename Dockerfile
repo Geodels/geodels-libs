@@ -6,6 +6,16 @@ MAINTAINER Tristan Salles
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends apt-utils
 
+COPY fastfunc /live/lib
+
+WORKDIR /live/lib/fastfunc
+RUN ls
+RUN python setup.py install && \
+    cd .. && \
+    rm -rf fastfunc
+
+RUN pip install meshplex
+
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     libscalapack-mpi-dev \
     libnetcdf-dev \
@@ -149,12 +159,4 @@ RUN cd /live/lib && \
     cd /live/lib && \
     rm -rf gmsh
 
-COPY fastfunc /live/lib
 
-WORKDIR /live/lib
-RUN cd fastfunc && \
-    python setup.py install && \
-    cd .. && \
-    rm -rf fastfunc
-
-RUN pip install meshplex
