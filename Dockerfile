@@ -151,8 +151,8 @@ RUN cd /live/lib && \
 
 COPY fastfunc /live/lib
 
-RUN cd /live/lib && \
-    cd fastfunc && \
+WORKDIR /live/lib
+RUN cd fastfunc && \
     python setup.py install && \
     cd .. && \
     rm -rf fastfunc
