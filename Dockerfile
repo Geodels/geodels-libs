@@ -148,3 +148,13 @@ RUN cd /live/lib && \
     make install && \
     cd /live/lib && \
     rm -rf gmsh
+
+COPY fastfunc /live/lib
+
+RUN cd /live/lib && \
+    cd fastfunc && \
+    python setup.py install && \
+    cd .. && \
+    rm -rf fastfunc
+
+RUN pip install meshplex
