@@ -168,7 +168,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     gdal-bin \
     libgdal-dev
 
-RUN pip install rasterio
+RUN pip install rasterio==0.36.0
 
 RUN git clone https://github.com/j08lue/pycpt.git && \
     cd pycpt && \
