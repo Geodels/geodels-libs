@@ -153,7 +153,7 @@ COPY fastfunc /live/lib/fastfunc
 
 WORKDIR /live/lib/fastfunc
 RUN python setup.py install && \
-    cd .. && \
+    cd /live/lib/ && \
     rm -rf fastfunc
 
 RUN pip install meshplex
