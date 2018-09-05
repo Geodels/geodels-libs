@@ -149,14 +149,12 @@ RUN cd /live/lib && \
     cd /live/lib && \
     rm -rf gmsh
 
-COPY fastfunc /live/lib/fastfunc
+RUN git clone https://github.com/Geodels/meshplex.git && \
+    cd meshplex && \
+    python setup.py install && \
+    cd .. && \
+    rm -rf meshplex
 
-WORKDIR /live/lib/fastfunc
-RUN python setup.py install && \
-    cd /live/lib/ && \
-    rm -rf fastfunc
-
-RUN pip install meshplex
 RUN pip install pygeotools
 RUN pip install ruamel.yaml
 
