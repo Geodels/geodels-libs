@@ -167,6 +167,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     libgdal-dev
 
 RUN pip install rasterio==0.36.0
+RUN pip install geopy
 
 RUN git clone https://github.com/j08lue/pycpt.git && \
     cd pycpt && \
