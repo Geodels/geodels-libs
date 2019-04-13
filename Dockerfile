@@ -171,6 +171,7 @@ RUN pip install geopy
 
 RUN git clone https://github.com/j08lue/pycpt.git && \
     cd pycpt && \
+    git checkout b45f720d09da79bcd567c5cbba9a554b0a7cc1d9 && \
     python setup.py install && \
     cd .. && \
     rm -rf pycpt
